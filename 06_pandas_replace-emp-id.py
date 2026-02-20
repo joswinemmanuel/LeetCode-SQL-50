@@ -8,12 +8,6 @@ data = [[3, 1], [11, 2], [90, 3]]
 employee_uni = pd.DataFrame(data, columns=['id', 'unique_id']).astype({
     'id': 'int64', 'unique_id': 'int64'})
 
-
-# def replace_employee_id(employees: pd.DataFrame, employee_uni: pd.DataFrame) -> pd.DataFrame:
-#     merged = pd.merge(employees, employee_uni, how='left', on='id')
-#     return merged.loc[:, ['unique_id', 'name']]
-
-
 def replace_employee_id(employee: pd.DataFrame, employee_uni: pd.DataFrame) -> pd.DataFrame:
     merged = pd.merge(employee, employee_uni, how="left", on="id")
     return merged.loc[:, ["unique_id", "name"]]
